@@ -1,9 +1,10 @@
 type Props = {
   title: string | null;
   date: string | null;
+  origin: string;
 };
 
-export default function Podter({ title, date }: Props) {
+export default function Podter({ title, date, origin }: Props) {
   return (
     <div
       style={{
@@ -11,8 +12,7 @@ export default function Podter({ title, date }: Props) {
         height: "100%",
         width: "100%",
         display: "flex",
-        // backgroundImage: `url(${siteConfig.url}/og-bg.png)`,
-        backgroundImage: `url("https://podter-website-4anzff731-podter.vercel.app/og-bg.png")`,
+        backgroundImage: `url("${origin}/podter.png")`,
       }}
     >
       <div tw="absolute flex items-start justify-end top-16 right-16 h-full w-full">

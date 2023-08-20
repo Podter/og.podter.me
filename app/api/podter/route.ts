@@ -4,7 +4,7 @@ import Podter from "./og";
 export const runtime = "edge";
 
 export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url);
+  const { searchParams, origin } = new URL(request.url);
   const title = searchParams.get("title");
   const date = searchParams.get("date");
 
@@ -15,7 +15,7 @@ export async function GET(request: Request) {
     new URL("./switzer-bold.ttf", import.meta.url),
   ).then((res) => res.arrayBuffer());
 
-  return new ImageResponse(Podter({ title, date }), {
+  return new ImageResponse(Podter({ title, date, origin }), {
     width: 1200,
     height: 630,
     fonts: [
